@@ -16,6 +16,7 @@ apply plugin: 'kotlin'
 apply plugin: 'com.google.protobuf'
 apply plugin: 'idea'
 apply plugin: 'application'
+mainClassName = 'kek.lol.MainKt'
  
 group 'spbau'
 version '1.0-SNAPSHOT'
@@ -56,7 +57,10 @@ protobuf {
     }
     generateProtoTasks {
         all()*.plugins {
-            grpc {}
+            grpc {
+                outputSubDir = 'java'
+            }
         }
     }
+    generatedFilesBaseDir = "$projectDir/src"
 }

@@ -1,0 +1,15 @@
+syntax = "proto3";
+package com.example.grpc.chat;
+
+message Message {
+    string name = 1;
+    string text = 2;
+}
+
+service MessageSender {
+    rpc sendMessage(Message) returns (Reply) {}
+}
+
+message Reply {
+    bool isSent = 1;
+}
